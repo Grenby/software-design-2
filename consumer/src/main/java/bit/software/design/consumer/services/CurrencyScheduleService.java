@@ -1,8 +1,8 @@
-package bit.software.design.services;
+package bit.software.design.consumer.services;
 
 
-import bit.software.design.consumers.CurrencyConsumer;
-import bit.software.design.providers.CurrencyProvider;
+import bit.software.design.consumer.consumers.CurrencyConsumer;
+import bit.software.design.consumer.providers.CurrencyProvider;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Scheduled;

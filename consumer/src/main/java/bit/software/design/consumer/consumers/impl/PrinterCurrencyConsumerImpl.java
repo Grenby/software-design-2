@@ -1,6 +1,6 @@
-package bit.software.design.consumers.impl;
+package bit.software.design.consumer.consumers.impl;
 
-import bit.software.design.consumers.CurrencyConsumer;
+import bit.software.design.consumer.consumers.CurrencyConsumer;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 

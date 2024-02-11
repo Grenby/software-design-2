@@ -1,4 +1,4 @@
-package bit.software.design.consumers;
+package bit.software.design.consumer.consumers;
 
 public interface CurrencyConsumer {
 

@@ -1,5 +1,5 @@
 server:
   port: 8090
-target_url: http://localhost:8080
+target_url: http://localhost:8080/provider
 schedule:
   delay: PT5S
