@@ -1,7 +1,7 @@
 package bit.software.design.controllers.impl;
 
 import bit.software.design.controllers.CurrencyController;
-import bit.software.design.data.CurrencyService;
+import bit.software.design.provider.CurrencyProvider;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class CurrencyControllerImpl implements CurrencyController {
 
-    private final CurrencyService currencyService;
+    private final CurrencyProvider currencyProvider;
 
     @Override
     @GetMapping("/get")
     public Double getCurrentCurrency() {
-        return currencyService.getCurrentCurrency();
+        return currencyProvider.getCurrentCurrency();
     }
 
 }

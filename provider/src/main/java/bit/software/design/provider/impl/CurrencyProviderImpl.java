@@ -1,12 +1,12 @@
-package bit.software.design.data.impl;
+package bit.software.design.provider.impl;
 
-import bit.software.design.data.CurrencyService;
+import bit.software.design.provider.CurrencyProvider;
 import org.springframework.stereotype.Component;
 
 import java.util.Random;
 
 @Component
-public class CurrencyServiceImpl implements CurrencyService {
+public class CurrencyProviderImpl implements CurrencyProvider {
 
     @Override
     public Double getCurrentCurrency() {
