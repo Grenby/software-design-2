@@ -2,15 +2,12 @@ package bit.software.design;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 
-@EnableDiscoveryClient
 @SpringBootApplication
-public class ConsumerApp {
-
+@EnableEurekaServer
+public class EurekaStarter {
     public static void main(String[] args) {
-        SpringApplication.run(ConsumerApp.class, args);
+        SpringApplication.run(EurekaStarter.class, args);
     }
-
-
 }
