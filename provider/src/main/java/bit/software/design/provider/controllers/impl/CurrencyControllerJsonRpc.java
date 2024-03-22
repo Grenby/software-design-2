@@ -10,9 +10,9 @@ import org.springframework.stereotype.Controller;
 
 @Controller
 @RequiredArgsConstructor
-@JsonRpcService("/provider")
+@JsonRpcService("/jsonrpc")
 @AutoJsonRpcServiceImpl
-public class CurrencyControllerImpl implements CurrencyController {
+public class CurrencyControllerJsonRpc implements CurrencyController {
 
     private final CurrentCurrencyProvider currencyProvider;
 

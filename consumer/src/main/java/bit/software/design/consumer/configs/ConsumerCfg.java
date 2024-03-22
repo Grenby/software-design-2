@@ -2,6 +2,7 @@ package bit.software.design.consumer.configs;
 
 
 import bit.software.design.consumer.providers.impl.JsonRpcCurrencyProviderImpl;
+import bit.software.design.consumer.providers.impl.RestCurrencyProviderImpl;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;
@@ -48,6 +49,14 @@ public class ConsumerCfg {
                 requestEntity,
                 objectMapper
         );
+    }
+
+    @Bean
+    public RestCurrencyProviderImpl restCurrencyProvider(
+            @Value("${target_url}") String url,
+            RestTemplate template
+    ){
+        return new RestCurrencyProviderImpl(url, template);
     }
 
 }

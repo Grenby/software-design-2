@@ -31,7 +31,7 @@ public class JsonRpcCurrencyProviderImpl implements CurrencyProvider {
     public Double getCurrency() {
 
         String response = restTemplate.exchange(
-                targetUrl,
+                targetUrl+"/jsonrpc",
                 HttpMethod.POST,
                 requestEntity,
                 String.class
