@@ -1,4 +1,4 @@
-package bit.software.design.controllers;
+package bit.software.design.provider.controllers;
 
 public interface CurrencyController {
 
