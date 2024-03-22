@@ -20,10 +20,13 @@ public class DiscoveryServiceProvider {
 
     public ServiceInstance getInstance(String serviceName){
         List<ServiceInstance> serviceInstances = discoveryClient.getInstances(serviceName);
+        log.info("num services {} : {}", serviceName, serviceInstances.size());
         if (serviceInstances.isEmpty()){
             throw new IllegalStateException();
         }
         int index = counter.computeIfAbsent(serviceName, s -> new AtomicInteger(0)).incrementAndGet();
+        log.info("{}", index);
+        serviceInstances.forEach(s->log.info("{}", s));
         return serviceInstances.get(
                 index % serviceInstances.size()
         );

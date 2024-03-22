@@ -4,9 +4,12 @@ import bit.software.design.provider.controllers.CurrencyController;
 import bit.software.design.provider.providers.CurrentCurrencyProvider;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController("/rest")
+@RestController
+@RequestMapping("/rest")
 @RequiredArgsConstructor
 public class CurrencyControllerRest implements CurrencyController {
 
@@ -14,7 +17,8 @@ public class CurrencyControllerRest implements CurrencyController {
 
     @Override
     @GetMapping("/get")
-    public Double getCurrentCurrency() {
-        return currencyProvider.getCurrentCurrency();
+    public Double getCurrentCurrency(@RequestParam(value = "from", defaultValue = "rub") String currencyFrom,
+                                     @RequestParam(value = "to", defaultValue = "usd") String currencyTo ) {
+        return currencyProvider.getCurrentCurrency(currencyFrom,currencyTo);
     }
 }

@@ -15,7 +15,7 @@ public class CurrentCurrencyProviderImpl implements CurrentCurrencyProvider {
     private final double currency;
 
     @Override
-    public double getCurrentCurrency() {
+    public double getCurrentCurrency(String currencyFrom, String currencyTo) {
         return new Random().nextDouble() * currency;
     }
 }

@@ -39,7 +39,10 @@ public class ConsumerCfg {
                         {
                         "jsonrpc": "2.0",
                         "method": "get",
-                        "params": {},
+                        "params": {
+                            "from":"rub",
+                            "to":"usd"
+                        },
                         "id": 555
                         }
                         """,

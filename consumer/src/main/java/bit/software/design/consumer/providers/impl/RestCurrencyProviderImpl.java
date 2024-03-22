@@ -18,7 +18,7 @@ public class RestCurrencyProviderImpl implements CurrencyProvider {
     @Override
     public Double getCurrency() {
         return restTemplate.exchange(
-                discoveryServiceProvider.getInstance(providerServiceName).getUri() + "/get",
+                discoveryServiceProvider.getInstance(providerServiceName).getUri() + "/rest/get",
                 HttpMethod.GET,
                 null,
                 Double.class
