@@ -1,5 +1,6 @@
 package bit.software.design.consumer.providers.impl;
 
+import bit.software.design.consumer.discovery.DiscoveryServiceProvider;
 import bit.software.design.consumer.providers.CurrencyProvider;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -22,7 +23,8 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class JsonRpcCurrencyProviderImpl implements CurrencyProvider {
 
-    private final String targetUrl;
+    private final String providerServiceName;
+    private final DiscoveryServiceProvider discoveryServiceProvider;
     private final RestTemplate restTemplate;
     private final HttpEntity<String> requestEntity;
     private final ObjectMapper objectMapper;
@@ -31,7 +33,7 @@ public class JsonRpcCurrencyProviderImpl implements CurrencyProvider {
     public Double getCurrency() {
 
         String response = restTemplate.exchange(
-                targetUrl+"/jsonrpc",
+                discoveryServiceProvider.getInstance(providerServiceName).getUri()+"/jsonrpc",
                 HttpMethod.POST,
                 requestEntity,
                 String.class

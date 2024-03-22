@@ -1,6 +1,7 @@
 package bit.software.design.consumer.configs;
 
 
+import bit.software.design.consumer.discovery.DiscoveryServiceProvider;
 import bit.software.design.consumer.providers.impl.JsonRpcCurrencyProviderImpl;
 import bit.software.design.consumer.providers.impl.RestCurrencyProviderImpl;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -25,8 +26,9 @@ public class ConsumerCfg {
 
     @Bean
     public JsonRpcCurrencyProviderImpl jsonRpcCurrencyProvider(
-            @Value("${target_url}") String url,
+            @Value("${target_service}") String service,
             RestTemplate template,
+            DiscoveryServiceProvider provider,
             ObjectMapper objectMapper
     ){
         MultiValueMap<String, String> headers = new HttpHeaders();
@@ -44,7 +46,8 @@ public class ConsumerCfg {
                 headers
         );
         return new JsonRpcCurrencyProviderImpl(
-                url,
+                service,
+                provider,
                 template,
                 requestEntity,
                 objectMapper
@@ -53,10 +56,11 @@ public class ConsumerCfg {
 
     @Bean
     public RestCurrencyProviderImpl restCurrencyProvider(
-            @Value("${target_url}") String url,
-            RestTemplate template
+            @Value("${target_service}") String service,
+            RestTemplate template,
+            DiscoveryServiceProvider provider
     ){
-        return new RestCurrencyProviderImpl(url, template);
+        return new RestCurrencyProviderImpl(service,provider, template);
     }
 
 }

@@ -1,4 +1,4 @@
-package bit.software.design.discovery;
+package bit.software.design.consumer.discovery;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
